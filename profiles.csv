@@ -1,0 +1,7 @@
+id,name,sleep_time,cleanliness,work_schedule,food_habits
+1,Alice,Early,High,9-5,Vegetarian
+2,Bob,Late,Medium,Remote,Non-Vegetarian
+3,Charlie,Moderate,Medium,Shift,Vegan
+4,Diana,Early,High,9-5,Vegan
+5,Eli,Late,Low,Remote,Vegetarian
+6,Fay,Early,Medium,9-5,Non-Vegetarian
