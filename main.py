@@ -3,13 +3,13 @@ import csv
 def calculate_score(profile1, profile2):
     score = 0
 
-    # Sleep Time Compatibility
+    # 🛌 Sleep Time Compatibility
     if profile1['sleep_time'] == profile2['sleep_time']:
         score += 25
     elif 'Moderate' in (profile1['sleep_time'], profile2['sleep_time']):
         score += 10
 
-    # Cleanliness Tolerance
+    # 🧹 Cleanliness Tolerance
     levels = {'Low': 0, 'Medium': 1, 'High': 2}
     cleanliness_gap = abs(levels[profile1['cleanliness']] - levels[profile2['cleanliness']])
     if cleanliness_gap == 0:
@@ -17,7 +17,7 @@ def calculate_score(profile1, profile2):
     elif cleanliness_gap == 1:
         score += 15
 
-    # Work Schedule Synergy
+    # 💼 Work Schedule Synergy
     if profile1['work_schedule'] == profile2['work_schedule']:
         score += 25
     elif {'Remote', '9-5'} <= {profile1['work_schedule'], profile2['work_schedule']}:
@@ -25,7 +25,7 @@ def calculate_score(profile1, profile2):
     elif {'Shift', '9-5'} <= {profile1['work_schedule'], profile2['work_schedule']}:
         score += 5
 
-    # Food Habit Harmony
+    # 🍲 Food Habit Harmony
     if profile1['food_habits'] == profile2['food_habits']:
         score += 25
     elif {'Vegetarian', 'Non-Vegetarian'} <= {profile1['food_habits'], profile2['food_habits']}:
@@ -49,6 +49,10 @@ def rank_matches(new_profile, profiles):
     return sorted(scored, key=lambda x: x[1], reverse=True)
 
 if __name__ == '__main__':
+    print("👋 Welcome to the Roommate Compatibility Scorer!")
+    print("Please ensure 'profiles.csv' is in the same directory.")
+
+    # Example profile input
     new_user = {
         'sleep_time': 'Early',
         'cleanliness': 'High',
@@ -59,6 +63,6 @@ if __name__ == '__main__':
     profiles = load_profiles('profiles.csv')
     ranked = rank_matches(new_user, profiles)
 
-    print("Top Compatible Roommates:")
+    print("\n💯 Top Compatible Roommates:")
     for name, score in ranked:
         print(f"{name}: {score}/100")
